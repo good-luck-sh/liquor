@@ -1,0 +1,19 @@
+package com.liquors.vo;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class OrderDetail {
+
+	private OrderTable order;
+	private Product product;
+	private int orderPrice;
+}
