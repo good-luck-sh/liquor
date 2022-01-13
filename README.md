@@ -16,7 +16,7 @@ spring으로 구현한 전통주정 웹사이트 페이지
 
 ⌨️ back-end
 ---
-
+java, springboot, mybatis, oracleSQL
 
 🖥 front-end
 ---
