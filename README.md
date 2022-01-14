@@ -1,4 +1,4 @@
-spring으로 구현한 전통주정 웹사이트 페이지
+spring으로 구현한 전통주정 웹사이트 페이지 구현 중
 ---
 
 🍶 전통주情(정)이란
@@ -16,7 +16,7 @@ spring으로 구현한 전통주정 웹사이트 페이지
 
 ⌨️ back-end
 ---
-
+java, springboot, mybatis, oracleSQL
 
 🖥 front-end
 ---
