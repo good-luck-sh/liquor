@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liquors.mapper.ProductMapper">
+<!-- 
+	public void insertProduct(Product product);
+	public List<Product> searchProduct();
+	public Product detailByNo(int no);
+	public void updateProduct(Product product);
+	public List<Product> searchProductAll(Criteria criteria);
+ -->
+ 
+ 	<insert id="insertProduct" parameterType="com.liquors.vo.Product">
+ 		<selectKey keyProperty="no" resultType="int" order="BEFORE">
+ 			select product_no_seq
+ 			from dual
+ 		</selectKey>
+ 		insert into product
+ 		(product_no, location_no, category_no, product_name, product_content, product_picture,
+ 		product_maker, product_created_date)
+ 		values
+ 		(#{no}, #{location.no}, #{category.no}, #{name}, #{content}, #{picture}, #{maker}, sysdate)
+ 	</insert>
+ 	<select id="searchProduct" resultType="com.liquors.vo.Product">
+ 		select 
+ 			product_no as no, 
+ 			location_no as location,
+ 			category_no as category, 
+ 			product_stock as stock,
+ 			product_name as name,
+ 			product_content as content, 
+ 			product_picture as picture, 
+ 			product_maker as maker,
+ 			product_created_date as createdDate, 
+ 			product_sold_out as soldOut
+ 		from product			
+ 	</select>
+ 	<select id="detailByNo" parameterType="int" resultType="com.liquors.vo.Product">
+ 		select 
+ 			product_no as no, 
+ 			location_no as location,
+ 			category_no as category, 
+ 			product_stock as stock,
+ 			product_name as name,
+ 			product_content as content, 
+ 			product_picture as picture, 
+ 			product_maker as maker,
+ 			product_created_date as createdDate, 
+ 			product_sold_out as soldOut
+ 		from product
+ 		where product_no=#{value}
+ 			
+ 	</select>
+ 	<update id="updateProduct" parameterType="com.liquors.vo.Product">
+ 		update product
+ 			location_no =#{location.no},
+ 			category_no =#{category.no}, 
+ 			product_stock =#{stock},
+ 			product_name =#{name},
+ 			product_content =#{content}, 
+ 			product_picture =#{picture}, 
+ 			product_maker =#{maker},
+ 			product_sold_out as  =#{soldOut}
+ 		set
+ 			product_no =#{no}
+ 	</update>
+ 	<select id="searchProductAll" parameterType="com.liquors.Criteria.Criteria" resultType="com.liquors.vo.Product">
+ 			select 
+ 			product_no as no, 
+ 			location_no as location,
+ 			category_no as category, 
+ 			product_stock as stock,
+ 			product_name as name,
+ 			product_content as content, 
+ 			product_picture as picture, 
+ 			product_maker as maker,
+ 			product_created_date as createdDate, 
+ 			product_sold_out as soldOut
+ 		from product
+ 		<where>
+ 			<if test="opt != null and value != null">
+ 			<choose>
+ 				<when test="opt == '이름'">
+ 					product_name = #{value}
+ 				</when>
+ 				<when test="opt =='회사이름'">
+ 					product_maker = #{value}
+ 				</when>
+ 			</choose>
+ 			</if>
+ 		</where>
+ 	</select>
+</mapper>

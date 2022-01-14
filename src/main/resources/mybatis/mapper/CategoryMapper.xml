@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liquors.mapper.CategoryMapper">
+<!-- 	public void insertCategory(Category category);
+		public List<Category> searchCategory();
+		public Category searchByNo(int no);
+		public List<Category> searchCategoryAll(Criteria criteria);
+ -->
+	<insert id="insertCategory" parameterType="com.liquors.Criteria.criteria">
+		<selectKey keyProperty="no" resultType="int" order="BEFORE">
+			select category_no
+			from dual
+		</selectKey>
+		insert into category
+		(category_no, category_title, category_content)
+		values
+		(#{no},#{title},#{content})
+	</insert>
+	<select id="searchCategory" resultType="com.liquors.vo.Category">
+		select 
+		category_no as
+		from categoty
+	</select>
+	<select id="searchByNo" parameterType="int" resultType=""></select>
+	<select id="searchCategoryAll" parameterType="com.liquors.Criteria.criteria" resultType="com.liquors.vo.Category"></select>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liquors.mapper.LocationMapper"> 
+<!-- 
+	public void insertLocation(Location location);
+	public List<Location> searchLocation();
+	public Location searchByNo(int no);
+	public List<Location> searchCategoryAll(Criteria criteria);
+ -->
+ 	<insert id="insertLocation" parameterType="com.liquors.vo.Location"></insert>
+ 	<select id="searchLocation" resultType="com.liquors.vo.Location" ></select>
+ 	<select id="searchByNo" parameterType="int" resultType="com.liquors.vo.Location"></select>
+ 	<select id="searchCategoryAll" parameterType="com.liquors.Criteria.criteria" resultType="com.liquors.vo.Location"></select>
+ 
+</mapper>
