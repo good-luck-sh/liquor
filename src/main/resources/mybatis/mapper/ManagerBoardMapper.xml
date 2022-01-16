@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liquors.mapper.ManagerBoardMapper">
+
+<!-- 
+	public void insertManagerBoard(ManagerBoard board);
+	public List<ManagerBoard> getAllBoard();
+	public ManagerBoard searchManagerBoard(int no);
+ -->
+	<insert id="insertManagerBoard" parameterType="com.liquors.vo.ManagerBoard">
+		<selectKey keyProperty="no" resultType="int" order="BEFORE">
+			select manager_board_no_seq.nextval
+			from dual
+		</selectKey>
+		insert into manager_board
+		(manager_board_no, manager_board_title, manager_board_content, manager_board_created_date)
+		values
+		(#{no},#{title},#{content},sysdate)
+	</insert>
+	<select id="getAllBoard" resultType="com.liquors.vo.ManagerBoard">
+		select 
+			manager_board_no as no, 
+			manager_board_title as title, 
+			manager_board_content as content, 
+			manager_board_view_count as viewCount ,
+			manager_board_created_date as createdDate
+		from manager_board
+	</select>
+	<select id="searchManagerBoard" parameterType="int" resultType="com.liquors.vo.ManagerBoard">
+		select 
+			manager_board_no as no, 
+			manager_board_title as title, 
+			manager_board_content as content, 
+			manager_board_view_count as viewCount ,
+			manager_board_created_date as createdDate
+		from manager_board
+		where manager_board_no = #{value}
+	</select>
+</mapper>

@@ -13,7 +13,7 @@ import lombok.Setter;
 @Builder
 public class OrderAdressDetail {
 
-	private OrderAdress orderAdress;
+	private int orderAdressNo;
 	private int orderAdressNumber;//우편번호
 	private String adressDetail;//자세한 우편주소
 }

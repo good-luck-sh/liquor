@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liquors.mapper.ProductReviewReplyMapper">
+<!-- 
+	public void insertProductReviewReply(ProductReviewReply reply);
+	public void updateProductReviewReply(ProductReviewReply reply);
+	public List<ProductReviewReply> getReplyListByReviewNo(int reviewNo);
+	public List<ProductReviewReply> getReplyListByUserNo(int userNo);
+ -->
+ 	<insert id="insertProductReviewReply" parameterType="com.liquors.vo.ProductReviewReply">
+ 		<selectKey keyProperty="no" resultType="int" order="BEFORE">
+ 			select review_reply_no_seq.nextval
+ 			from dual
+ 		</selectKey>
+ 		insert into procut_review_reply
+ 		(review_no, review_reply_no, user_no, review_reply_content,review_reply_created_date)
+ 		values
+ 		(#{reviewNo},#{no},#{userNo},#{content}, sysdate)
+ 	</insert>
+ 	<update id="updateProductReviewReply" parameterType="com.liquors.vo.ProductReviewReply">
+ 		update product_review_reply
+ 		set 
+ 		review_reply_content = #{content},
+ 		review_reply_deleted = #{deleted}
+ 		where review_reply_no = #{no}
+ 	</update>
+ 	<select id="getReplyListByReviewNo" parameterType="int" resultType="com.liquors.vo.ProductReviewReply">
+ 		select 
+ 		review_no as, 
+ 		review_reply_no,
+ 		user_no, 
+ 		review_user_no, 
+ 		review_reply_content,
+ 		review_reply_created_date,
+ 		review_reply_deleted
+ 		from product_review_reply
+ 		where review_no = #{value}
+ 	</select>
+ 	<select id="getReplyListByUserNo" parameterType="int" resultType="com.liquors.vo.ProductReviewReply"></select>
+ 
+ </mapper>

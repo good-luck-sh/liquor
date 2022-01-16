@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liquors.mapper.OrderAdressDetailMapper">
+<!-- 
+	public void insertAdressDetail(OrderAdressDetail adressDetail);
+	public List<OrderAdressDetail> getAllOrderAdressDetail();
+	public OrderAdressDetail searchOrderAdressDetail(int no);
+ -->
+ 	<insert id="insertAdressDetail" parameterType="com.liquors.vo.OrderAdressDetail">
+ 		insert into order_adress_detail
+ 		(order_adress_no, order_adress_number,order_adress_detail)
+ 		values
+ 		(#{orderAdressNo},#{orderAdressNumber},#{adressDetail})
+ 	</insert>
+ 	<select id="getAllOrderAdressDetail" resultType="com.liquors.vo.OrderAdressDetail">
+ 		select 
+ 			order_adress_no as orderAdressNo, 
+ 			order_adress_number as orderAdressNumber, 
+ 			order_adress_detail as adressDetail
+ 		from order_adress_detail
+ 	</select>
+ 	<select id="searchOrderAdressDetail" parameterType="int" resultType="com.liquors.vo.OrderAdressDetail">
+ 		select 
+ 			order_adress_no as orderAdressNo, 
+ 			order_adress_number as orderAdressNumber, 
+ 			order_adress_detail as adressDetail
+ 		from order_adress_detail
+ 		where order_adress_no = #{value}
+ 	
+ 	</select>
+ </mapper>

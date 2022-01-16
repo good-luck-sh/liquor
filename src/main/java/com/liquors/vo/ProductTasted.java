@@ -13,7 +13,7 @@ import lombok.Setter;
 @Builder
 public class ProductTasted {
 
-	private Product product;
+	private int productNo;
 	private int sweet;// 달콤한정도 1~5 5가제일 높음
 	private int sour;//시큼함
 	private int refreshment;//청량감

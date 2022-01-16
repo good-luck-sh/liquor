@@ -14,5 +14,5 @@ public interface LocationMapper {
 	public void insertLocation(Location location);
 	public List<Location> searchLocation();
 	public Location searchByNo(int no);
-	public List<Location> searchCategoryAll(Criteria criteria);
+
 }

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liquors.mapper.OrderAgreeMapper">
+<!-- 
+	public void insertOrderAgree(OrderAgree orderAgree);
+	public List<OrderAgree> getAllOrderAgree();
+	public OrderAgree searchOrderAgree(int no);
+	public void updateOrderAgree(char yes);
+ -->
+ 	<insert id="insertOrderAgree" parameterType="com.liquors.vo.OrderAgree">
+ 		<selectKey keyProperty="no" resultType="int" order="BEFORE">
+ 			select order_agree_no_seq.nextval
+ 			from order_agree
+ 		</selectKey>
+ 		insert into order_agree
+ 		(order_agree_no, order_no, user_no, order_agreement_no, order_agree_created_date)
+ 		values
+ 		(#{no},#{orderNo},#{userNo},#{agreementNo},sysdate)
+ 	</insert>
+ 	<select id="getAllOrderAgree" resultType="com.liquors.vo.OrderAgree">
+ 		select 
+ 			order_agree_no as no, 
+ 			order_no as orderNo, 
+ 			user_no as userNo, 
+ 			order_agreement_no as agreementNo, 
+ 			order_agree_created_date as orderAgreeCreatedDate, 
+ 			order_agree_check as orderAgreeCheck
+ 		from order_agree
+ 	</select>
+ 	<select id="searchOrderAgree" parameterType="int" resultType="com.liquors.vo.OrderAgree">
+ 		select 
+ 			order_agree_no as no, 
+ 			order_no as orderNo, 
+ 			user_no as userNo, 
+ 			order_agreement_no as agreementNo, 
+ 			order_agree_created_date as orderAgreeCreatedDate, 
+ 			order_agree_check as orderAgreeCheck
+ 		from order_agree
+ 			where order_agree_no
+ 	</select>
+ 	<update id="updateOrderAgree" parameterType="java.lang.String">
+ 		update order_agree
+ 		set
+ 		order_agree_check = #{value}
+ 		where order_agree_no = #{no}
+ 	</update>
+ 
+ </mapper>

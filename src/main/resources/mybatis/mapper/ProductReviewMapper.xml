@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liquors.mapper.ProductReviewMapper">
+<!-- 
+	public void insertProductReview(ProductReview review);
+	public void updateProductReview(ProductReview review);
+	public List<ProductReview> getAllProductReview();
+	public List<ProductReview> searchProductReviewByProductNo(int productNo);
+	public ProductReview searchProductReviewByReviewNo(int reviewNo);
+ -->
+ 	<insert id="insertProductReview" parameterType="com.liquors.vo.ProductReview">
+ 		<selectKey keyProperty="no" resultType="int" order="BEFORE">
+ 			select review_no_seq.nextval
+ 			from dual
+ 		</selectKey>
+ 		insert into product_review
+ 		(review_no, product_no, review_title, review_content, review_picture, order_no, review_created_date)
+ 		values
+ 		(#{no},#{productNo},#{title},#{content},#{picture},#{orderNo},sysdate)
+ 	</insert>
+ 	<update id="updateProductReview" parameterType="com.liquors.vo.ProductReview">
+ 		update product_review
+ 		set 
+ 		review_title = #{title},
+ 		review_content = #{content},
+ 		review_picture = #{picture},
+ 		review_like = #{like},
+ 		review_update_date = sysdate, 
+ 		review_deleted = #{deleted}
+ 		where review_no = #{no}
+ 	</update>
+ 	<select id="getAllProductReview" resultType="com.liquors.vo.ProductReview">
+ 		select 
+ 			review_no as no,
+ 			product_no as productNo,
+ 			review_title as title,
+ 			review_content as content,
+ 			review_picture as picture,
+ 			review_like as like,
+ 			order_no as orderNo,
+ 			review_created_date as createdDate,
+ 			review_updated_date as updatedDate,
+ 			review_deleted as deleted
+ 		from product_review
+ 		order by review_no desc
+ 	</select>
+ 	<select id="searchProductReviewByProductNo" parameterType="int" resultType="com.liquors.vo.ProductReview">
+ 	select 
+ 			review_no as no,
+ 			product_no as productNo,
+ 			review_title as title,
+ 			review_content as content,
+ 			review_picture as picture,
+ 			review_like as like,
+ 			order_no as orderNo,
+ 			review_created_date as createdDate,
+ 			review_updated_date as updatedDate,
+ 			review_deleted as deleted
+ 		from product_review
+ 		where product_no = #{value}
+ 		order by review_no desc</select>
+ 	<select id="searchProductReviewByReviewNo" parameterType="int" resultType="com.liquors.vo.ProductReview">
+ 	select 
+ 			review_no as no,
+ 			product_no as productNo,
+ 			review_title as title,
+ 			review_content as content,
+ 			review_picture as picture,
+ 			review_like as like,
+ 			order_no as orderNo,
+ 			review_created_date as createdDate,
+ 			review_updated_date as updatedDate,
+ 			review_deleted as deleted
+ 		from product_review
+ 		where review_no = #{value}
+ 		order by review_no desc</select>
+ </mapper>

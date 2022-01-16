@@ -16,12 +16,12 @@ import lombok.Setter;
 public class ProductReview {
 
 	private int no;
-	private Product product;
+	private int productNo;
 	private String title;
 	private String content;
 	private String picture;
 	private int like;
-	private OrderTable order;
+	private int orderNo;
 	private Date createdDate;
 	private Date updatedDate;
 	private char deleted;

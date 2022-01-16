@@ -15,8 +15,8 @@ import lombok.Setter;
 @Builder
 public class Product {
 	private int no;
-	private Location location;
-	private Category category;
+	private int locationNo;
+	private int categoryNo;
 	private int stock;
 	private String name;
 	private String content;

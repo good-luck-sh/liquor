@@ -4,11 +4,11 @@
 <!-- 	public void insertCategory(Category category);
 		public List<Category> searchCategory();
 		public Category searchByNo(int no);
-		public List<Category> searchCategoryAll(Criteria criteria);
+	
  -->
-	<insert id="insertCategory" parameterType="com.liquors.Criteria.criteria">
+	<insert id="insertCategory" parameterType="com.liquors.vo.Category">
 		<selectKey keyProperty="no" resultType="int" order="BEFORE">
-			select category_no
+			select category_no_seq.nextval
 			from dual
 		</selectKey>
 		insert into category
@@ -18,9 +18,18 @@
 	</insert>
 	<select id="searchCategory" resultType="com.liquors.vo.Category">
 		select 
-		category_no as
-		from categoty
+		category_no as no,
+		category_title as title,
+		category_content as content
+		from category
 	</select>
-	<select id="searchByNo" parameterType="int" resultType=""></select>
-	<select id="searchCategoryAll" parameterType="com.liquors.Criteria.criteria" resultType="com.liquors.vo.Category"></select>
+	<select id="searchByNo" parameterType="int" resultType="com.liquors.vo.Category">
+		select 
+		category_no as no,
+		category_title as title,
+		category_content as content
+		from category
+		where category_no = #{value}
+	</select>
+	
 </mapper>

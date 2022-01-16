@@ -14,6 +14,6 @@ import lombok.Setter;
 public class OrderAdress {
 
 	private int no;
-	private OrderTable order;
+	private int orderNo;
 	private String adressCity;
 }

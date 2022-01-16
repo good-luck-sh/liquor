@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liquors.mapper.OrderAdressMapper">
+<!-- 
+	public void insertOrderAdress(OrderAdress orderAdress);
+	public List<OrderAdress> getAllOrderAdressList();
+	public OrderAdress searchOrderAdressByAdressNo(int orderAdressNo);
+	public OrderAdress searchOrderAdressByOrderNo(int orderNo);
+ -->
+ 	<insert id="insertOrderAdress" parameterType="com.liquors.vo.OrderAdress">
+ 		<selectKey keyProperty="no" resultType="int" order="BEFORE">
+ 			select order_adress_no_seq.nextval
+ 			from dual
+ 		</selectKey>
+ 		insert into order_adress
+ 		(order_adress_no, order_no, order_adress_city)
+ 		values
+ 		(#{no},#{orderNo},#{adressCity})
+ 	</insert>
+ 	<select id="getAllOrderAdressList" resultType="com.liquors.vo.OrderAdress">
+ 		select 
+ 			order_adress_no as no, 
+ 			order_no as order_no, 
+ 			order_adress_city as adressCity
+ 		from order_adress
+ 	</select>
+ 	<select id="searchOrderAdressByAdressNo" parameterType="int" resultType="com.liquors.vo.OrderAdress">
+ 		select 
+ 			order_adress_no as no, 
+ 			order_no as order_no, 
+ 			order_adress_city as adressCity
+ 		from order_adress
+ 		where order_adress_no = #{value}
+ 	</select>
+ 	<select id="searchOrderAdressByOrderNo" parameterType="int" resultType="com.liquors.vo.OrderAdress">
+ 		select 
+ 			order_adress_no as no, 
+ 			order_no as order_no, 
+ 			order_adress_city as adressCity
+ 		from order_adress
+ 		where order_no = #{value}
+ 	</select>
+ </mapper>

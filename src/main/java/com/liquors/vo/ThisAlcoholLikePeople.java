@@ -14,6 +14,6 @@ import lombok.Setter;
 public class ThisAlcoholLikePeople {
 
 	private int no;
-	private ThisAlcohol thisAlcohol;
-	private UserTable user;
+	private int thisAlcoholNo;
+	private int userNo;
 }

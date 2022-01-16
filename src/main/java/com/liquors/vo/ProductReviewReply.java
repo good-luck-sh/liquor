@@ -15,9 +15,9 @@ import lombok.Setter;
 @Builder
 public class ProductReviewReply {
 
-	private ProductReview review;
+	private int reviewNo;
 	private int no;
-	private UserTable user;
+	private int userNo;
 	private String content;
 	private Date createdDate;
 	private char deleted;

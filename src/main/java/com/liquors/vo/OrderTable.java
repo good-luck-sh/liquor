@@ -16,7 +16,7 @@ import lombok.Setter;
 public class OrderTable {
 
 	private int no;
-	private UserTable user;
+	private int userNo;
 	private Date createdDate;
 	private String payment; //결제완료
 	private String delivery; //배송중

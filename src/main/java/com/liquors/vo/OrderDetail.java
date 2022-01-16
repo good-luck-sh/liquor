@@ -13,7 +13,7 @@ import lombok.Setter;
 @Builder
 public class OrderDetail {
 
-	private OrderTable order;
-	private Product product;
+	private int orderNo;
+	private int productNo;
 	private int orderPrice;
 }

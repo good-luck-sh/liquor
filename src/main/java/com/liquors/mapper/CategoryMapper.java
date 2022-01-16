@@ -13,5 +13,4 @@ public interface CategoryMapper {
 	public void insertCategory(Category category);
 	public List<Category> searchCategory();
 	public Category searchByNo(int no);
-	public List<Category> searchCategoryAll(Criteria criteria);
 }
