@@ -13,14 +13,13 @@
  			from order_agree
  		</selectKey>
  		insert into order_agree
- 		(order_agree_no, order_no, user_no, order_agreement_no, order_agree_created_date)
+ 		(order_agree_no, user_no, order_agreement_no, order_agree_created_date)
  		values
  		(#{no},#{orderNo},#{userNo},#{agreementNo},sysdate)
  	</insert>
  	<select id="getAllOrderAgree" resultType="com.liquors.vo.OrderAgree">
  		select 
  			order_agree_no as no, 
- 			order_no as orderNo, 
  			user_no as userNo, 
  			order_agreement_no as agreementNo, 
  			order_agree_created_date as orderAgreeCreatedDate, 
@@ -30,7 +29,6 @@
  	<select id="searchOrderAgree" parameterType="int" resultType="com.liquors.vo.OrderAgree">
  		select 
  			order_agree_no as no, 
- 			order_no as orderNo, 
  			user_no as userNo, 
  			order_agreement_no as agreementNo, 
  			order_agree_created_date as orderAgreeCreatedDate, 

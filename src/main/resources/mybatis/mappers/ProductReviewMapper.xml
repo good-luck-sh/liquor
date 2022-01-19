@@ -14,9 +14,9 @@
  			from dual
  		</selectKey>
  		insert into product_review
- 		(review_no, product_no, review_title, review_content, review_picture, order_no, review_created_date)
+ 		(review_no, product_no, review_title, review_content, review_picture, review_created_date)
  		values
- 		(#{no},#{productNo},#{title},#{content},#{picture},#{orderNo},sysdate)
+ 		(#{no},#{productNo},#{title},#{content},#{picture},sysdate)
  	</insert>
  	<update id="updateProductReview" parameterType="com.liquors.vo.ProductReview">
  		update product_review
@@ -37,7 +37,6 @@
  			review_content as content,
  			review_picture as picture,
  			review_like as like,
- 			order_no as orderNo,
  			review_created_date as createdDate,
  			review_updated_date as updatedDate,
  			review_deleted as deleted
@@ -52,7 +51,6 @@
  			review_content as content,
  			review_picture as picture,
  			review_like as like,
- 			order_no as orderNo,
  			review_created_date as createdDate,
  			review_updated_date as updatedDate,
  			review_deleted as deleted
@@ -67,7 +65,6 @@
  			review_content as content,
  			review_picture as picture,
  			review_like as like,
- 			order_no as orderNo,
  			review_created_date as createdDate,
  			review_updated_date as updatedDate,
  			review_deleted as deleted

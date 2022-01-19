@@ -15,5 +15,4 @@ public class ThisAlcoholLikePeople {
 
 	private int no;
 	private int thisAlcoholNo;
-	private int userNo;
 }

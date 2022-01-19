@@ -16,7 +16,6 @@ import lombok.Setter;
 public class OrderAgree { //주문동의
 
 	private int no;
-	private int orderNo;
 	private int userNo;
 	private int agreementNo;
 	private Date orderAgreeCreatedDate;

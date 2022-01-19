@@ -21,7 +21,6 @@ public class ProductReview {
 	private String content;
 	private String picture;
 	private int like;
-	private int orderNo;
 	private Date createdDate;
 	private Date updatedDate;
 	private char deleted;
