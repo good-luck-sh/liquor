@@ -12,7 +12,8 @@ spring으로 구현한 전통주정 웹사이트 페이지 구현 중
 
 😀ERD다이어그램
 ---
-![https://user-images.githubusercontent.com/79691180/148858486-b07f5ff8-09a9-4cdd-9bf6-0d354fcc4871.png](https://user-images.githubusercontent.com/79691180/148858486-b07f5ff8-09a9-4cdd-9bf6-0d354fcc4871.png)
+![image](https://user-images.githubusercontent.com/79691180/150173534-01533cd6-d282-4d1c-878e-da313e0d63d3.png)
+
 main화면 
 ----
 <img width="952" alt="image" src="https://user-images.githubusercontent.com/79691180/149661117-6775e915-b941-4a72-adfb-ca2779bea6f5.png">
@@ -20,15 +21,15 @@ main화면
 
 ⌨️ back-end
 ---
-java, springboot, mybatis, oracleSQL
+java, springboot, mybatis, Oracle, lombok, spring boot DevTools 
 
 🖥 front-end
 ---
-
+Vue.js, html, css
 
 💻 server
 ---
-
+spring web = Tomcat server
 
 📚 openAPI
 ---
