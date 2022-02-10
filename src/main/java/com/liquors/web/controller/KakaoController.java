@@ -1,4 +1,4 @@
-package com.liquors.controller;
+package com.liquors.web.controller;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

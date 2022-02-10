@@ -1,4 +1,4 @@
-package com.liquors.controller;
+package com.liquors.web.controller;
 
 import java.util.Map;
 
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.liquors.service.UserService;
 import com.liquors.service.UserServiceImpl;
+import com.liquors.vo.UserTable;
 
 import lombok.extern.slf4j.Slf4j;
 
